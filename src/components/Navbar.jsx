@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types"; // ✅ Import PropTypes
-import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="#">
           {props.heading}
         </a>
         <button
@@ -24,14 +23,14 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link className="nav-link" to="/">
-                Home 
-              </Link>
+              <a className="nav-link" href="#">
+                Home <span className="sr-only">(current)</span>
+              </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <a className="nav-link" href="about">
                 {props.about}
-              </Link>
+              </a>
             </li>
           </ul>
             {/* <input
@@ -45,7 +44,7 @@ const Navbar = (props) => {
             </button> */}
             <div className={`form-check form-switch text-${props.mode=='light'?'#042743':'light'}`}>
           <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.togglemode}/>
-          <label className="form-check-label" for="flexSwitchCheckDefault">Enable {props.mode=='light'?'dark':'light'} Mode</label>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode=='light'?'dark':'light'} Mode</label>
 </div>
         </div>
       </nav>
